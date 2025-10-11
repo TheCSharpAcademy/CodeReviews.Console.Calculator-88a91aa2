@@ -8,6 +8,7 @@ namespace CalculatorLibrary
 
         JsonWriter writer;
         int usedCount;
+        List<double> results;
 
         public Calculator()
         {
@@ -20,6 +21,7 @@ namespace CalculatorLibrary
             writer.WriteStartArray();
 
             usedCount = 0;
+            results = [];
         }
 
         public double DoOperation(double num1, double num2, string op)
@@ -63,6 +65,7 @@ namespace CalculatorLibrary
             writer.WriteEndObject();
 
             usedCount++;
+            results.Add(result);
 
             return result;
         }
@@ -77,6 +80,19 @@ namespace CalculatorLibrary
         public int DisplayUsedCount()
         {
             return usedCount;
+        }
+
+        public void DeleteResultList()
+        {
+            if (results.Count > 0)
+            {
+                results.Clear();
+            }
+        }
+
+        public List<double> GetResultList()
+        {
+            return results;
         }
     }
 }

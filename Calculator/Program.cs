@@ -9,6 +9,7 @@ namespace CalculatorProgram
         static void Main(string[] args)
         {
             bool endApp = false;
+            double? latestResult = null;
             // Display title as the C# console calculator app.
             Console.WriteLine("Console Calculator in C#\r");
             Console.WriteLine("------------------------\n");
@@ -49,23 +50,31 @@ namespace CalculatorProgram
                     string? numInput1 = "";
                     string? numInput2 = "";
                     double result = 0;
-
-                    // Ask the user to type the first number.
-                    Console.Write("Type a number, and then press Enter: ");
-                    numInput1 = Console.ReadLine();
-
                     double cleanNum1 = 0;
-                    while (!double.TryParse(numInput1, out cleanNum1))
+                    double cleanNum2 = 0;
+
+                    if (latestResult == null)
                     {
-                        Console.Write("This is not valid input. Please enter an integer value: ");
+                        // Ask the user to type the first number.
+                        Console.Write("Type a number, and then press Enter: ");
                         numInput1 = Console.ReadLine();
+
+                        while (!double.TryParse(numInput1, out cleanNum1))
+                        {
+                            Console.Write("This is not valid input. Please enter an integer value: ");
+                            numInput1 = Console.ReadLine();
+                        }
+                    }
+                    else
+                    {
+                        cleanNum1 = (double)latestResult;
+                        Console.WriteLine($"Using the latest result as the operand: {latestResult}");
                     }
 
                     // Ask the user to type the second number.
                     Console.Write("Type another number, and then press Enter: ");
                     numInput2 = Console.ReadLine();
 
-                    double cleanNum2 = 0;
                     while (!double.TryParse(numInput2, out cleanNum2))
                     {
                         Console.Write("This is not valid input. Please enter an integer value: ");
@@ -89,8 +98,23 @@ namespace CalculatorProgram
                 Console.WriteLine("------------------------\n");
 
                 // Wait for the user to respond before closing.
-                Console.Write("Press 'n' and Enter to close the app, or press any other key and Enter to continue: ");
-                if (Console.ReadLine() == "n") endApp = true;
+                Console.Write("Press 'n' and Enter to close the app, or r to use the latest result as the first operand, or press any other key and Enter to continue: ");
+                string option = Console.ReadLine();
+                if (option == "n") endApp = true;
+
+                latestResult = null;
+                if (option == "r")
+                {
+                    List<double> results = calculator.GetResultList();
+                    if (results.Count > 0)
+                    {
+                        latestResult = results[^1];
+                    }
+                    else
+                    {
+                        Console.WriteLine("Result list is empty");
+                    }
+                }
 
                 Console.WriteLine("\n"); // Friendly linespacing.
             }
