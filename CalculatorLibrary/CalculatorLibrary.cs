@@ -56,6 +56,55 @@ namespace CalculatorLibrary
                     }
                     writer.WriteValue("Divide");
                     break;
+                case "p":
+                    result = Math.Pow(num1, num2);
+                    writer.WriteValue("Taking the Power");
+                    break;
+                // Return text for an incorrect option entry.
+                default:
+                    break;
+            }
+            writer.WritePropertyName("Result");
+            writer.WriteValue(result);
+            writer.WriteEndObject();
+
+            usedCount++;
+            results.Add(result);
+
+            return result;
+        }
+
+        public double DoOperation(double num, string op)
+        {
+
+            double result = double.NaN; // Default value is "not-a-number" if an operation, such as division, could result in an error.
+            writer.WriteStartObject();
+            writer.WritePropertyName("Operand");
+            writer.WriteValue(num);
+            writer.WritePropertyName("Operation");
+
+            switch (op)
+            {
+                case "r":
+                    result = Math.Sqrt(num);
+                    writer.WriteValue("Square root");
+                    break;
+                case "t":
+                    result = 10 * num;
+                    writer.WriteValue("10x");
+                    break;
+                case "x":
+                    result = Math.Sin(num);
+                    writer.WriteValue("Sine");
+                    break;
+                case "y":
+                    result = Math.Cos(num);
+                    writer.WriteValue("Cosine");
+                    break;
+                case "z":
+                    result = Math.Tan(num);
+                    writer.WriteValue("Tangent");
+                    break;
                 // Return text for an incorrect option entry.
                 default:
                     break;
@@ -82,7 +131,7 @@ namespace CalculatorLibrary
             return usedCount;
         }
 
-        public void DeleteResultList()
+        public void ClearResultList()
         {
             if (results.Count > 0)
             {

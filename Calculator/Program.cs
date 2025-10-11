@@ -23,14 +23,20 @@ namespace CalculatorProgram
                 Console.WriteLine("\ts - Subtract");
                 Console.WriteLine("\tm - Multiply");
                 Console.WriteLine("\td - Divide");
-                Console.WriteLine("\th - History");
-                Console.WriteLine("\td - Delete Result List");
+                Console.WriteLine("\tr - Square root");
+                Console.WriteLine("\tp - Taking the Power");
+                Console.WriteLine("\tt - 10x");
+                Console.WriteLine("\tx - Sine");
+                Console.WriteLine("\ty - Cosine");
+                Console.WriteLine("\tz - Tangent");
+                Console.WriteLine("\th - History(total use count)");
+                Console.WriteLine("\tc - Clear Result List");
                 Console.Write("Your option? ");
 
                 string? op = Console.ReadLine();
 
                 // Validate input is not null, and matches the pattern
-                if (op == null || !System.Text.RegularExpressions.Regex.IsMatch(op, "[a|s|m|d|h|r]"))
+                if (op == null || !System.Text.RegularExpressions.Regex.IsMatch(op, "[a|s|m|d|r|p|t|x|y|z|h|c]"))
                 {
                     Console.WriteLine("Error: Unrecognized input.");
                 }
@@ -38,10 +44,48 @@ namespace CalculatorProgram
                 {
                     Console.WriteLine($"The amount of times the calculator was used: {calculator.DisplayUsedCount()}");
                 }
-                else if (System.Text.RegularExpressions.Regex.IsMatch(op, "[d]"))
+                else if (System.Text.RegularExpressions.Regex.IsMatch(op, "[c]"))
                 {
-                    calculator.DeleteResultList();
-                    Console.WriteLine($"Result list deleted");
+                    calculator.ClearResultList();
+                    Console.WriteLine($"Result list cleared");
+                }
+                else if (System.Text.RegularExpressions.Regex.IsMatch(op, "[r|t|x|y|z]"))
+                {
+                    string? numInput = "";
+                    double result = 0;
+                    double cleanNum = 0;
+
+                    if (latestResult == null)
+                    {
+                        // Ask the user to type the first number.
+                        Console.Write("Type a number, and then press Enter: ");
+                        numInput = Console.ReadLine();
+
+                        while (!double.TryParse(numInput, out cleanNum))
+                        {
+                            Console.Write("This is not valid input. Please enter an integer value: ");
+                            numInput = Console.ReadLine();
+                        }
+                    }
+                    else
+                    {
+                        cleanNum = (double)latestResult;
+                        Console.WriteLine($"Using the latest result as the operand: {latestResult}");
+                    }
+
+                    try
+                    {
+                        result = calculator.DoOperation(cleanNum, op);
+                        if (double.IsNaN(result))
+                        {
+                            Console.WriteLine("This operation will result in a mathematical error.\n");
+                        }
+                        else Console.WriteLine("Your result: {0:0.##}\n", result);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Oh no! An exception occurred trying to do the math.\n - Details: " + e.Message);
+                    }
                 }
                 else
                 {
@@ -99,7 +143,7 @@ namespace CalculatorProgram
 
                 // Wait for the user to respond before closing.
                 Console.Write("Press 'n' and Enter to close the app, or r to use the latest result as the first operand, or press any other key and Enter to continue: ");
-                string option = Console.ReadLine();
+                string? option = Console.ReadLine();
                 if (option == "n") endApp = true;
 
                 latestResult = null;
