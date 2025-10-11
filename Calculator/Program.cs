@@ -23,18 +23,24 @@ namespace CalculatorProgram
                 Console.WriteLine("\tm - Multiply");
                 Console.WriteLine("\td - Divide");
                 Console.WriteLine("\th - History");
+                Console.WriteLine("\td - Delete Result List");
                 Console.Write("Your option? ");
 
                 string? op = Console.ReadLine();
 
                 // Validate input is not null, and matches the pattern
-                if (op == null || !System.Text.RegularExpressions.Regex.IsMatch(op, "[a|s|m|d|h]"))
+                if (op == null || !System.Text.RegularExpressions.Regex.IsMatch(op, "[a|s|m|d|h|r]"))
                 {
                     Console.WriteLine("Error: Unrecognized input.");
                 }
                 else if (System.Text.RegularExpressions.Regex.IsMatch(op, "[h]"))
                 {
                     Console.WriteLine($"The amount of times the calculator was used: {calculator.DisplayUsedCount()}");
+                }
+                else if (System.Text.RegularExpressions.Regex.IsMatch(op, "[d]"))
+                {
+                    calculator.DeleteResultList();
+                    Console.WriteLine($"Result list deleted");
                 }
                 else
                 {
