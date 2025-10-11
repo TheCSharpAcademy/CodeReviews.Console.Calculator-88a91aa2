@@ -7,6 +7,7 @@ namespace CalculatorLibrary
     {
 
         JsonWriter writer;
+        int usedCount;
 
         public Calculator()
         {
@@ -17,6 +18,8 @@ namespace CalculatorLibrary
             writer.WriteStartObject();
             writer.WritePropertyName("Operations");
             writer.WriteStartArray();
+
+            usedCount = 0;
         }
 
         public double DoOperation(double num1, double num2, string op)
@@ -59,6 +62,8 @@ namespace CalculatorLibrary
             writer.WriteValue(result);
             writer.WriteEndObject();
 
+            usedCount++;
+
             return result;
         }
 
@@ -67,6 +72,11 @@ namespace CalculatorLibrary
             writer.WriteEndArray();
             writer.WriteEndObject();
             writer.Close();
+        }
+
+        public int DisplayUsedCount()
+        {
+            return usedCount;
         }
     }
 }
