@@ -18,14 +18,14 @@ namespace CalculatorLibrary
         }
         public double DoOperation(double num1, double num2, string op)
         {
-            double result = double.NaN; 
-           
+            double result = double.NaN;
+
             writer.WriteStartObject();
             writer.WritePropertyName("Operand1");
             writer.WriteValue(num1);
             writer.WritePropertyName("Operand2");
             writer.WriteValue(num2);
-            writer.WritePropertyName("Operation");            
+            writer.WritePropertyName("Operation");
             switch (op)
             {
                 case "a":
@@ -40,7 +40,7 @@ namespace CalculatorLibrary
                     result = num1 * num2;
                     writer.WriteValue("Multiply");
                     break;
-                case "d":            
+                case "d":
                     if (num2 != 0)
                     {
                         result = num1 / num2;
@@ -54,20 +54,18 @@ namespace CalculatorLibrary
             writer.WriteValue(result);
             writer.WriteEndObject();
 
-            
+
             return result;
         }
         public void Finish()
         {
-            if (writer != null)
-            {
-                writer.WriteEndArray();
-                writer.Close();
-            }
-            
-            writer?.WriteEndObject();
-            
+
+            writer.WriteEndArray();
+            writer.WriteEndObject();
+            writer.Close();
+
+
         }
-        
+
     }
 }
