@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Diagnostics;
 using static CalculatorLibrary.Calculator;
 
 namespace CalculatorLibrary;
@@ -11,7 +10,6 @@ public class CalculationRecord
     public OperationType Operation { get; set; }
     public double Result { get; set; }
 }
-
 
 public class Calculator
 {
@@ -92,7 +90,6 @@ public class Calculator
     
     private int _usageCount = 0;
     public int UsageCount => _usageCount;
-
 
     public Calculator()
     {
@@ -180,14 +177,10 @@ public class Calculator
         _history.Clear();
     }
 
-
-
     public void Finish()
     {
         writer.WriteEndArray();
         writer.WriteEndObject();
         writer.Close();
     }
-
-
 }

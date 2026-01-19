@@ -1,7 +1,6 @@
 ﻿using CalculatorLibrary;
 using static CalculatorLibrary.Calculator;
 
-
 class Program
 { 
     static void Main(string[] args)
@@ -11,7 +10,6 @@ class Program
 
         Console.WriteLine("Console Calculator in C#\r");
         Console.WriteLine("------------------------\n");
-
 
         while (!endApp)
         {
@@ -53,7 +51,6 @@ class Program
                     continue; // user cancelled or invalid
             }
 
-
             double? num1 = null;
             double? num2 = null;
             double result = 0;
@@ -90,7 +87,6 @@ class Program
                 }
             }
 
-
             if (count == 2)
             {
                 Console.Write("Enter second number: ");
@@ -104,7 +100,10 @@ class Program
                 {
                     Console.WriteLine("This operation will result in a mathematical error.\n");
                 }
-                else Console.WriteLine($"Your result for game number {calculator.UsageCount}: {result:0.##}\n");
+                else
+                {
+                    Console.WriteLine($"Your result for game number {calculator.UsageCount}: {result:0.##}\n");
+                }
             }
             catch (Exception e)
             {
@@ -141,7 +140,9 @@ class Program
         Console.WriteLine("Choose an operator from the following list:");
 
         foreach (var entry in labels)
+        {
             Console.WriteLine($"\t{entry.Value}");
+        }
 
         Console.Write("Your option: ");
     }
@@ -157,11 +158,13 @@ class Program
         }
 
         Console.WriteLine("Calculation History:");
+
         for (int i = 0; i < history.Count; i++)
         {
             var h = history[i];
             Console.WriteLine($"{i}: {h.Operand1} {h.Operation} {h.Operand2} = {h.Result}");
         }
+
         Console.WriteLine();
     }
 
@@ -178,16 +181,17 @@ class Program
         PrintHistory(calculator);
 
         Console.Write("Enter the index of the result to reuse: ");
+
         if (int.TryParse(Console.ReadLine(), out int index))
         {
             if (index >= 0 && index < history.Count)
+            {
                 return history[index].Result;
+            }
         }
 
         Console.WriteLine("Invalid selection.\n");
+
         return null;
     }
-
-
-
 }
