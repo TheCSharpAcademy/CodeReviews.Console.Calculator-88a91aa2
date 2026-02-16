@@ -8,7 +8,6 @@ namespace CalculatorLibrary
         private List<string> _calculationHistory = new List<string>();
 
         public int UsageCount { get; private set; }
-       
 
         public Calculator()
         {
@@ -56,7 +55,8 @@ namespace CalculatorLibrary
                         result = num1 / num2;
                     }
                     writer.WriteValue("Divide");
-                    operationString = num2 != 0 ? $"{num1} / {num2} = {result:N2}" : $"{num1} / {num2} = Error";
+                    operationString =
+                        num2 != 0 ? $"{num1} / {num2} = {result:N2}" : $"{num1} / {num2} = Error";
                     break;
                 default:
                     operationString = "Invalid operation";
