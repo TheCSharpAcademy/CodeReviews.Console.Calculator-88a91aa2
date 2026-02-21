@@ -48,6 +48,11 @@ namespace CalculatorLibrary
                         result = num1 / num2;
                         writer.WriteValue("Divide");
                     }
+                    else
+                    {
+                        writer.WriteValue("DivideByZero");
+                        result = double.NaN;
+                    }
                     break;
                 default:
                     break;
