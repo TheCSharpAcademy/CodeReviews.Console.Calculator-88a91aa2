@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.37111.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlexRamos.Calculator", "AlexRamos.Calculator\AlexRamos.Calculator.csproj", "{6959C9EE-84B8-497F-8B07-1D38E2A474E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryLibrary", "MemoryLibrary\MemoryLibrary.csproj", "{B06D81E0-1F1C-4597-B729-5904BEA315BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorLibrary", "CalculatorLibrary\CalculatorLibrary.csproj", "{ADCF80A5-6B0E-4BA5-AE12-C79950B55778}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperationsLibrary", "OperationsLibrary\OperationsLibrary.csproj", "{63AFAB2B-8B6C-AC63-3C7F-7FAC15ECBB48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Memory", "Memory\Memory.csproj", "{D64E0913-79C8-4ABC-A9F7-77A6B0EB6AB5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlexRamos.Calculator", "AlexRamos.Calculator\AlexRamos.Calculator.csproj", "{32CD4FCF-6DB1-F595-6C04-5BA47BC78B9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6959C9EE-84B8-497F-8B07-1D38E2A474E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6959C9EE-84B8-497F-8B07-1D38E2A474E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6959C9EE-84B8-497F-8B07-1D38E2A474E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6959C9EE-84B8-497F-8B07-1D38E2A474E9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ADCF80A5-6B0E-4BA5-AE12-C79950B55778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ADCF80A5-6B0E-4BA5-AE12-C79950B55778}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ADCF80A5-6B0E-4BA5-AE12-C79950B55778}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ADCF80A5-6B0E-4BA5-AE12-C79950B55778}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D64E0913-79C8-4ABC-A9F7-77A6B0EB6AB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D64E0913-79C8-4ABC-A9F7-77A6B0EB6AB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D64E0913-79C8-4ABC-A9F7-77A6B0EB6AB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D64E0913-79C8-4ABC-A9F7-77A6B0EB6AB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B06D81E0-1F1C-4597-B729-5904BEA315BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B06D81E0-1F1C-4597-B729-5904BEA315BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B06D81E0-1F1C-4597-B729-5904BEA315BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B06D81E0-1F1C-4597-B729-5904BEA315BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63AFAB2B-8B6C-AC63-3C7F-7FAC15ECBB48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63AFAB2B-8B6C-AC63-3C7F-7FAC15ECBB48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63AFAB2B-8B6C-AC63-3C7F-7FAC15ECBB48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63AFAB2B-8B6C-AC63-3C7F-7FAC15ECBB48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32CD4FCF-6DB1-F595-6C04-5BA47BC78B9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32CD4FCF-6DB1-F595-6C04-5BA47BC78B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32CD4FCF-6DB1-F595-6C04-5BA47BC78B9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32CD4FCF-6DB1-F595-6C04-5BA47BC78B9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
