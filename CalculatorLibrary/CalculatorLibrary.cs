@@ -1,63 +1,60 @@
 ﻿namespace CalculatorLibrary;
+
+
+using System.Buffers;
 using System.Diagnostics;
 using Newtonsoft.Json;
 public class Calculator
 {
+    
+    public CalculatorData data = History.LoadHistory();
+    private int usageCount;
 
-    JsonWriter writer;
+    
     public Calculator() {
-        StreamWriter logfile = File.CreateText("Calculator.json");
-        logfile.AutoFlush = true;
-        writer = new JsonTextWriter(logfile);
-        writer.Formatting = Formatting.Indented;
-        writer.WriteStartObject();
-        writer.WritePropertyName("Operations");
-        writer.WriteStartArray();
+
+        
+        
     }
     public double DoOperation(double num1, double num2, string op)
     {
         double result = double.NaN; // Default value is "not-a-number" if an operation, such as division, could result in an error.
-        writer.WriteStartObject();
-        writer.WritePropertyName("Operand1");
-        writer.WriteValue(num1);
-        writer.WritePropertyName("operand2");
-        writer.WriteValue(num2);
-        writer.WritePropertyName("operation");
+        OperationObject OperationObj = new OperationObject();
+        OperationObj.Operand1 = num1;
+        OperationObj.Operand2 = num2;
 
         // Use a switch statement to do the math.
         switch (op)
         {
             case "a":
                 result = num1 + num2;
-                writer.WriteValue("Add");
+                OperationObj.Operation = "Add";
                 break;
             case "s":
                 result = num1 - num2;
-                writer.WriteValue("Subtract");
+                OperationObj.Operation = "Subtract";
                 break;
             case "m":
                 result = num1 * num2;
-                writer.WriteValue("Multiply");
+                OperationObj.Operation = "Multiply";
                 break;
             case "d":
                 // Ask the user to enter a non-zero divisor.
                 if (num2 != 0)
                 {
                     result = num1 / num2;
-                    writer.WriteValue("Divide");
+                    OperationObj.Operation = "Divide";
                 }
                 break;
             // Return text for an incorrect option entry.
             default:
                 break;
         }
+        
+        data.Operations.Add(OperationObj);
+        History.data = data;
+        History.SaveHistory();
         return result;
     }
 
- public void Finish()
- {
-     writer.WriteEndArray();
-     writer.WriteEndObject();
-     writer.Close();
- }
 }

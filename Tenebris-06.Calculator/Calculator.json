@@ -1,9 +1,15 @@
 {
+  "UsageCount": 2,
   "Operations": [
     {
+      "Operand1": 10.0,
+      "Operand2": 5.0,
+      "Operation": "Add"
+    },
+    {
       "Operand1": 5.0,
-      "operand2": 5.0,
-      "operation": "Add"
+      "Operand2": 1.0,
+      "Operation": "Add"
     }
   ]
 }
