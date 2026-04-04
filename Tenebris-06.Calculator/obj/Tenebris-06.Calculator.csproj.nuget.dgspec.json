@@ -4,14 +4,14 @@
     "/home/sam/Projects/VSCode/CodeReviews.Console.Calculator/Tenebris-06.Calculator/Tenebris-06.Calculator.csproj": {}
   },
   "projects": {
-    "/home/sam/Projects/VSCode/CodeReviews.Console.Calculator/Tenebris-06.Calculator/Tenebris-06.Calculator.csproj": {
+    "/home/sam/Projects/VSCode/CodeReviews.Console.Calculator/CalculatorLibrary/CalculatorLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/sam/Projects/VSCode/CodeReviews.Console.Calculator/Tenebris-06.Calculator/Tenebris-06.Calculator.csproj",
-        "projectName": "Tenebris-06.Calculator",
-        "projectPath": "/home/sam/Projects/VSCode/CodeReviews.Console.Calculator/Tenebris-06.Calculator/Tenebris-06.Calculator.csproj",
+        "projectUniqueName": "/home/sam/Projects/VSCode/CodeReviews.Console.Calculator/CalculatorLibrary/CalculatorLibrary.csproj",
+        "projectName": "CalculatorLibrary",
+        "projectPath": "/home/sam/Projects/VSCode/CodeReviews.Console.Calculator/CalculatorLibrary/CalculatorLibrary.csproj",
         "packagesPath": "/home/sam/.nuget/packages/",
-        "outputPath": "/home/sam/Projects/VSCode/CodeReviews.Console.Calculator/Tenebris-06.Calculator/obj/",
+        "outputPath": "/home/sam/Projects/VSCode/CodeReviews.Console.Calculator/CalculatorLibrary/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/sam/.nuget/NuGet/NuGet.Config"
@@ -44,6 +44,82 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.112/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/sam/Projects/VSCode/CodeReviews.Console.Calculator/Tenebris-06.Calculator/Tenebris-06.Calculator.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/sam/Projects/VSCode/CodeReviews.Console.Calculator/Tenebris-06.Calculator/Tenebris-06.Calculator.csproj",
+        "projectName": "Tenebris-06.Calculator",
+        "projectPath": "/home/sam/Projects/VSCode/CodeReviews.Console.Calculator/Tenebris-06.Calculator/Tenebris-06.Calculator.csproj",
+        "packagesPath": "/home/sam/.nuget/packages/",
+        "outputPath": "/home/sam/Projects/VSCode/CodeReviews.Console.Calculator/Tenebris-06.Calculator/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/sam/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib64/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/sam/Projects/VSCode/CodeReviews.Console.Calculator/CalculatorLibrary/CalculatorLibrary.csproj": {
+                "projectPath": "/home/sam/Projects/VSCode/CodeReviews.Console.Calculator/CalculatorLibrary/CalculatorLibrary.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

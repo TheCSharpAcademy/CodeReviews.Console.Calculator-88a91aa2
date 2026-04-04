@@ -1,0 +1,9 @@
+{
+  "Operations": [
+    {
+      "Operand1": 5.0,
+      "operand2": 5.0,
+      "operation": "Add"
+    }
+  ]
+}
