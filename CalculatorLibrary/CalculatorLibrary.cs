@@ -29,14 +29,17 @@ public class Calculator
             case "a":
                 result = num1 + num2;
                 OperationObj.Operation = "Add";
+                OperationObj.Result = result;
                 break;
             case "s":
                 result = num1 - num2;
                 OperationObj.Operation = "Subtract";
+                OperationObj.Result = result;
                 break;
             case "m":
                 result = num1 * num2;
                 OperationObj.Operation = "Multiply";
+                OperationObj.Result = result;
                 break;
             case "d":
                 // Ask the user to enter a non-zero divisor.
@@ -44,6 +47,11 @@ public class Calculator
                 {
                     result = num1 / num2;
                     OperationObj.Operation = "Divide";
+                    OperationObj.Result = result;
+                } else
+                {
+                    OperationObj.Operation = "Divide";
+                    OperationObj.Result = double.NaN;
                 }
                 break;
             // Return text for an incorrect option entry.

@@ -8,6 +8,7 @@ class Program
     static void Main(string[] args)
     {
         bool endApp = false;
+        bool mainMenu = true;
         // Display title as the C# console calculator app.
         Console.WriteLine("Console Calculator in C#\r");
         Console.WriteLine("------------------------\n");
@@ -21,6 +22,35 @@ class Program
             string? numInput1 = "";
             string? numInput2 = "";
             double result = 0;
+            string? choice = "";
+
+            while (mainMenu)
+            {
+                // Ask the user to specify choice
+            Console.WriteLine("Choose an Option:");
+
+            Console.WriteLine("[1] Calculate");
+            Console.WriteLine("[2] Show History");
+            Console.WriteLine("[3] Delete History");
+            
+            choice = Console.ReadLine();
+
+            if (!Regex.IsMatch(choice, "[1|2|3]"))
+            {
+                Console.WriteLine("Please input a valid choice:");
+            } else if (choice == "1")
+            {
+                mainMenu = false;
+            } else if (choice == "2")
+            {
+                    History.ShowHistory();
+            } else if (choice == "3")
+            {
+                History.DeleteHistory();
+            }
+            
+            } 
+
 
             // Ask the user to type the first number.
             Console.Write("Type a number, and then press Enter: ");
@@ -54,6 +84,8 @@ class Program
 
             string? op = Console.ReadLine();
 
+            Console.WriteLine("\n");
+
             // Validate input is not null, and matches the pattern
             if (op == null || ! Regex.IsMatch(op, "[a|s|m|d]"))
             {
@@ -80,6 +112,9 @@ class Program
             // Wait for the user to respond before closing.
             Console.Write("Press 'n' and Enter to close the app, or press any other key and Enter to continue: ");
             if (Console.ReadLine() == "n") endApp = true;
+            
+            // Go Back to Main Menu
+            mainMenu = true;
 
             Console.WriteLine("\n"); // Friendly linespacing.
         }

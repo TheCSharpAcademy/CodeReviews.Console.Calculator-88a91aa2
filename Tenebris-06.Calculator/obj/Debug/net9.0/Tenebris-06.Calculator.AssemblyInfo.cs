@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tenebris-06.Calculator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5412d055fe70e94c6d530373a61e550c9a30ece8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eae4f312d6772df63f745618d1370ef8dac4ca25")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tenebris-06.Calculator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tenebris-06.Calculator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
