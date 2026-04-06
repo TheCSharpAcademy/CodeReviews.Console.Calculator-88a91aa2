@@ -7,10 +7,6 @@ using Newtonsoft.Json;
 public class Calculator
 {
     
-    public CalculatorData data = History.LoadHistory();
-    private int usageCount;
-
-    
     public Calculator() {
 
         
@@ -51,17 +47,71 @@ public class Calculator
                 } else
                 {
                     OperationObj.Operation = "Divide";
-                    OperationObj.Result = double.NaN;
+                    OperationObj.Result = result;
                 }
+                break;
+
+            case "p":
+                result = Math.Pow(num1, num2);
+                OperationObj.Operation = "Power";
+                OperationObj.Result = result;
                 break;
             // Return text for an incorrect option entry.
             default:
                 break;
         }
         
-        data.Operations.Add(OperationObj);
-        History.data = data;
-        History.SaveHistory();
+        if (!string.IsNullOrEmpty(OperationObj.Operation))
+        {
+            History.data.Operations.Add(OperationObj);
+            History.SaveHistory();
+        }
+        return result;
+    }
+
+    public double DoOperation(double num1, string op)
+    {
+        double result = double.NaN; // Default value is "not-a-number" if an operation, such as division, could result in an error.
+        OperationObject OperationObj = new OperationObject();
+        OperationObj.Operand1 = num1;
+        
+        switch (op)
+        {
+            case "q":
+                result =  Math.Sqrt(num1);
+                OperationObj.Operation = "Sqrt";
+                OperationObj.Result = result;
+                break;
+            case "10x":
+                result = Math.Pow(10, num1);
+                OperationObj.Operation = "10x";
+                OperationObj.Result = result;
+                break;
+            case "sin":
+                result = Math.Sin(num1 * Math.PI / 180);
+                OperationObj.Operation = "sin";
+                OperationObj.Result = result;
+                break;
+            case "cos":
+                result = Math.Cos(num1 * Math.PI / 180);
+                OperationObj.Operation = "cos";
+                OperationObj.Result = result;
+                break;
+            case "tan":
+                result = Math.Tan(num1 * Math.PI / 180);
+                OperationObj.Operation = "tan";
+                OperationObj.Result = result;
+                break;
+            default:
+                break; 
+        }
+
+        if (!string.IsNullOrEmpty(OperationObj.Operation))
+        {
+            OperationObj.Operand2 = Double.NaN;
+            History.data.Operations.Add(OperationObj);
+            History.SaveHistory();
+        }
         return result;
     }
 

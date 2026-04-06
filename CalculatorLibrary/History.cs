@@ -1,9 +1,11 @@
 namespace CalculatorLibrary;
+
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 
 public static class History
 {
-    public static CalculatorData data;
+    public static CalculatorData data = LoadHistory();
     public static CalculatorData LoadHistory()
     {
         // Using JSON serialization instead of streaming
@@ -23,8 +25,7 @@ public static class History
         } else
         {
             string json = File.ReadAllText("Calculator.json");
-            data = JsonConvert.DeserializeObject<CalculatorData>(json) ?? new CalculatorData();
-            return data;
+            return JsonConvert.DeserializeObject<CalculatorData>(json) ?? new CalculatorData();
         }
 
     }
@@ -38,29 +39,51 @@ public static class History
     public static void ShowHistory()
     {
         int opNum = 0;
-        var data = LoadHistory();
 
         Console.WriteLine("\t\t[Calculator History]\n");
+        Console.WriteLine($"\t\tCalculator was used {data.UsageCount} times!");
+
         foreach (var operation in data.Operations)
         {
             opNum++;
-            string symbol = operation.Operation switch
-            {
-                "Add"       => "+",
-                "Subtract"  => "-",
-                "Multiply"  => "*",
-                "Divide"    => "/",
-                _           => "?"
-            };
-
             Console.WriteLine($"-- Operation {opNum} --");
-            Console.WriteLine($"{operation.Operand1} {symbol} {operation.Operand2} = {operation.Result}\n");
+
+            if (Regex.IsMatch(operation.Operation, "^(sin|cos|tan|Sqrt|10x)$", RegexOptions.IgnoreCase)){
+                
+                Console.WriteLine($"{operation.Operation}({operation.Operand1}) = {operation.Result}\n");
+
+            } else
+            {
+                string symbol = operation.Operation switch
+                {
+                    "Add"         => "+",
+                    "Subtract"    => "-",
+                    "Multiply"    => "*",
+                    "Divide"      => "/",
+                    "Power"       => "^",
+                    _             => "?"
+                };
+
+                
+                Console.WriteLine($"{operation.Operand1} {symbol} {operation.Operand2} = {operation.Result}\n");
+            }
+
+            
         }
     }
 
     public static void DeleteHistory()
     {
-        File.WriteAllText("Calculator.json", "");
+        var emptyData = new CalculatorData
+        {
+            UsageCount = 0,
+            Operations = new List<OperationObject>()
+        };
+
+        File.WriteAllText("Calculator.json",
+            JsonConvert.SerializeObject(emptyData, Formatting.Indented));
+
+        data = emptyData;
         Console.WriteLine("> History Deleted Successfully!\n");
     }
 }
