@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marqu013\\Documents\\Programacao\\CSHARP\\calculatorLibrary\\calculatorLibrary.csproj": {}
+    "c:\\Users\\marqu013\\Documents\\Programacao\\CSHARP\\calc\\CodeReviews.Console.Calculator\\CalculatorLibrary\\calculatorLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marqu013\\Documents\\Programacao\\CSHARP\\calculatorLibrary\\calculatorLibrary.csproj": {
+    "c:\\Users\\marqu013\\Documents\\Programacao\\CSHARP\\calc\\CodeReviews.Console.Calculator\\CalculatorLibrary\\calculatorLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marqu013\\Documents\\Programacao\\CSHARP\\calculatorLibrary\\calculatorLibrary.csproj",
+        "projectUniqueName": "c:\\Users\\marqu013\\Documents\\Programacao\\CSHARP\\calc\\CodeReviews.Console.Calculator\\CalculatorLibrary\\calculatorLibrary.csproj",
         "projectName": "calculatorLibrary",
-        "projectPath": "C:\\Users\\marqu013\\Documents\\Programacao\\CSHARP\\calculatorLibrary\\calculatorLibrary.csproj",
+        "projectPath": "c:\\Users\\marqu013\\Documents\\Programacao\\CSHARP\\calc\\CodeReviews.Console.Calculator\\CalculatorLibrary\\calculatorLibrary.csproj",
         "packagesPath": "C:\\Users\\marqu013\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marqu013\\Documents\\Programacao\\CSHARP\\calculatorLibrary\\obj\\",
+        "outputPath": "c:\\Users\\marqu013\\Documents\\Programacao\\CSHARP\\calc\\CodeReviews.Console.Calculator\\CalculatorLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marqu013\\AppData\\Roaming\\NuGet\\NuGet.Config"
