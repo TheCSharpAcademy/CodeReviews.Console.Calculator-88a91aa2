@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="calculator.abahm00/calculator.abahm00.csproj" />
+  <Project Path="CalculatorLibrary/CalculatorLibrary.csproj" />
+</Solution>
