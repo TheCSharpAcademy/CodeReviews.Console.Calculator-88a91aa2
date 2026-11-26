@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../CalculatorLibrary.Simof287/CalculatorLibrary.Simof287.csproj" />
+  </ItemGroup>
+
 </Project>
